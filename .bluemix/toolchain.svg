@@ -338,9 +338,6 @@
 <svg id="headerSVG.ibmCloud" x="16" y="665" width="65" height="20">
 	<text  x="50%" y="50%" text-anchor="middle" alignment-baseline="central" class="st22 st23">IBM Cloud</text>
 </svg>
-<svg id="headerSVG.webIde" x="-159.8" y="778.4" width="65" height="20">
-	<text x="50%" y="58%" text-anchor="middle" alignment-baseline="central" class="st22 st23">WEB IDE</text>
-</svg>
 
 <g>
 	
