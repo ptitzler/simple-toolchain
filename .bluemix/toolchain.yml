@@ -28,8 +28,8 @@ services:
       repo_name: '{{toolchain.name}}'
       repo_url: 'https://github.com/ptitzler/how-do-i-pipeline'
       type: link
-      has_issues: true
-      enable_traceability: true
+      has_issues: false
+      enable_traceability: false
   sample-build:
     service_id: pipeline
     parameters:
