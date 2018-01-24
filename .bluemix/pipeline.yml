@@ -18,8 +18,8 @@ stages:
   triggers:
   - type: stage
   properties:
-  - name: CF_APP_NAME
-    value: undefined
+  - name: CLOUDANT_SVC_NAME
+    value: how-do-i-cloudantNoSQLDB
     type: text
   - name: APP_URL
     value: undefined
@@ -36,6 +36,7 @@ stages:
       #!/bin/bash
       # Push app
       if ! cf app $CF_APP; then  
+        cf create-service cloudantNoSQLDB Lite ${CLOUDANT_SVC_NAME}      
         cf push $CF_APP
       else
         OLD_CF_APP=${CF_APP}-OLD-$(date +"%s")
@@ -54,9 +55,6 @@ stages:
         cf push $CF_APP
         cf delete $OLD_CF_APP -f
       fi
-      # Export app name and URL for use in later Pipeline jobs
-      export CF_APP_NAME="$CF_APP"
-      export APP_URL=http://$(cf app $CF_APP_NAME | grep -e urls: -e routes: | awk '{print $2}')
       # View logs
       #cf logs "${CF_APP}" --recent
       
